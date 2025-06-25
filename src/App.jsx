@@ -18,6 +18,7 @@ import NewProductPage from "@/routes/products/new";
 import InventoryPage from "@/routes/products/inventory"; // optional
 
 import SettingsPage from "@/routes/settings/page";
+import AnalyticsPage from "@/routes/analytics/page";
 
 function App() {
     const router = createBrowserRouter([
@@ -35,7 +36,8 @@ function App() {
             ),
             children: [
                 { index: true, element: <DashboardPage /> },
-                { path: "analytics", element: <h1 className="title">Analytics</h1> },
+             //   { path: "analytics", element: <h1 className="title">Analytics</h1> },
+                { path: "analytics", element: <AnalyticsPage /> },
                 { path: "reports", element: <h1 className="title">Reports</h1> },
 
                 // Customers

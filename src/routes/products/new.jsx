@@ -21,8 +21,9 @@ export default function NewProductPage() {
     try {
       setLoading(true);
 
-      // ✅ Use placeholder image
-      const imageUrl = "https://i.ibb.co/r2gcW8Fj/photo-1491553895911-0055eca6402d.jpg"; // ✅ Your real image
+
+      // ✅ Use placeholder image and change it when ever you add a new product
+      const imageUrl = "https://i.ibb.co/mrfW1C58/240-F-1097119702-g-Xd3h-YA1-I15i-Vl3f-Gu-D6-N51-DGVk41-Rn-E.jpg"; // ✅ Your real image use ibb
 
 
       await addDoc(collection(db, "products"), {
@@ -46,15 +47,15 @@ export default function NewProductPage() {
   return (
     <div className="p-6">
       <h1 className="text-3xl font-bold text-black dark:text-white mb-6">Add New Product</h1>
- 
+
       <form
-       
+
         onSubmit={handleSubmit}
-         
+
         className="bg-white dark:bg-slate-900 text-black dark:text-white p-6 rounded-lg shadow-md max-w-md"
-    
+
       >
-         <h2 className="text-xl font-semibold mb-4">Create New Customer</h2>
+        <h2 className="text-xl font-semibold mb-4">Create New Customer</h2>
         <input
           type="text"
           name="name"
@@ -71,7 +72,7 @@ export default function NewProductPage() {
           value={formData.price}
           onChange={handleChange}
           required
-className="mb-3 w-full p-2 rounded border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400"        />
+          className="mb-3 w-full p-2 rounded border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400" />
         <input
           type="number"
           name="quantity"

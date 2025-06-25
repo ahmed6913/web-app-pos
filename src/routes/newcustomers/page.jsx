@@ -27,8 +27,8 @@ export default function NewCustomerPage() {
 
   return (
     <div className="p-6 text-slate-900 dark:text-white">
-      <h1 className="text-3xl font-bold mb-6">New Customer</h1>
-      <div className="bg-white dark:bg-slate-900 p-6 rounded-lg shadow-md dark:shadow-slate-700 max-w-lg">
+      <h1 className="text-3xl font-bold mb-6">Add New Customer</h1>
+      <div className="bg-white dark:bg-slate-900 p-6 rounded-lg shadow-md ">
         <h2 className="text-xl font-semibold mb-4">Create New Customer</h2>
         <input
           type="text"

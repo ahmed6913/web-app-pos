@@ -52,22 +52,11 @@ export const Sidebar = forwardRef(({ collapsed }, ref) => {
           </nav>
         ))}
 
-        {/* 👇 Added Signup Link */}
-        <div className="mt-4 border-t border-slate-700 pt-4">
-          <NavLink
-            to="/signup"
-            className={cn(
-              "sidebar-item text-indigo-400 hover:text-white",
-              collapsed && "md:w-[45px]"
-            )}
-          >
-            {!collapsed && <p className="whitespace-nowrap">Signup</p>}
-          </NavLink>
-        </div>
-      </div>
-    </aside>
-  );
-});
+       
+      </div> 
+    </aside> 
+  ); 
+});  
 
 Sidebar.displayName = "Sidebar";
 

@@ -22,7 +22,8 @@ export default function NewProductPage() {
       setLoading(true);
 
       // ✅ Use placeholder image
-      const imageUrl = "https://via.placeholder.com/150";
+      const imageUrl = "https://i.ibb.co/r2gcW8Fj/photo-1491553895911-0055eca6402d.jpg"; // ✅ Your real image
+
 
       await addDoc(collection(db, "products"), {
         ...formData,
@@ -83,7 +84,7 @@ className="mb-3 w-full p-2 rounded border border-slate-300 dark:border-slate-700
         <input
           type="number"
           name="rating"
-          placeholder="Rating (1–5)"
+          placeholder="Rating (1–10)"
           value={formData.rating}
           onChange={handleChange}
           required

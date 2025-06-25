@@ -188,11 +188,12 @@ export default function BillingPage() {
             />
           </div>
         ))}
-
+<br  />
         <button
           onClick={handleAddProductField}
-          className="text-sm mb-4 text-blue-600 hover:underline"
+          className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-60 "
         >
+      
           + Add another product
         </button>
 
@@ -210,13 +211,13 @@ export default function BillingPage() {
           {editingId ? "Update Bill" : "Generate Bill"}
         </button>
       </div>
-
+<br />
       <h2 className="text-2xl font-semibold mb-4">All Bills</h2>
       <div className="space-y-4">
         {bills.map(bill => (
           <div
             key={bill.id}
-            className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-4 shadow"
+            className="bg-white dark:bg-slate-900 text-black dark:text-white p-4 rounded-lg shadow border border-gray-200 dark:border-slate-700 flex justify-between items-start"
           >
             <p><strong>👤 Customer:</strong> {bill.customer}</p>
             <p className="text-sm text-slate-500 dark:text-slate-400">
@@ -240,7 +241,7 @@ export default function BillingPage() {
               </button>
               <button
                 onClick={() => generatePDF(bill)}
-                className="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded"
+                className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
               >
                 Download PDF
               </button>

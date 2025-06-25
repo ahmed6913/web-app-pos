@@ -17,6 +17,8 @@ import ProductsPage from "@/routes/products/page";
 import NewProductPage from "@/routes/products/new";
 import InventoryPage from "@/routes/products/inventory"; // optional
 
+import SettingsPage from "@/routes/settings/page";
+
 function App() {
     const router = createBrowserRouter([
         // Public
@@ -48,7 +50,7 @@ function App() {
 
                 // Billing & Settings
                 { path: "billing", element: <BillingPage /> },
-                { path: "settings", element: <h1 className="title">Settings</h1> },
+                { path: "settings", element: <SettingsPage /> },
             ],
         },
     ]);

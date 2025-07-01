@@ -2,20 +2,26 @@
 
 A modern Point of Sale (POS) system with NFT-based customer rewards and an integrated NFT Marketplace — built for retail businesses looking to reward loyal customers with digital assets.
 
-[🚀 Live Demo](https://webapp-pos.vercel.app/) • [🌐 NFT Marketplace](https://nft-marketplace.vercel.app/)
+[🚀 Live Demo](coming soon) • [🌐 NFT Marketplace](https://nft-marketplace-81f39.web.app/)
 *Built with React, Firebase, Tailwind, Thirdweb, jsPDF, and more.*
 
 ---
 
 ## 📸 Preview
 
-> *Note: You can upload your screenshots later inside ****`public/screenshots/`****.*
+> ![image](https://github.com/user-attachments/assets/b65e44a1-f7a1-4084-a287-f025965cac9d)
 
 ---
 
 ## 🛠️ Tech Stack
 
----
+--- 
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=white)
+![Thirdweb](https://img.shields.io/badge/Thirdweb-000?style=for-the-badge&logo=thirdweb&logoColor=white)
+![jsPDF](https://img.shields.io/badge/jsPDF-E10098?style=for-the-badge&logo=ghost&logoColor=white)
+
 
 ## ✅ Features
 
@@ -67,7 +73,7 @@ VITE_FIREBASE_APP_ID=your-app-id
 npm run dev
 ```
 
-App will be available at [http://localhost:5173](http://localhost:5173)
+App will be available at [http://localhost:3000) Most probably might be diffrent 
 
 ---
 
@@ -75,13 +81,18 @@ App will be available at [http://localhost:5173](http://localhost:5173)
 
 ```
 src/
-├── components/        # Reusable UI components
-├── contexts/          # Auth context
-├── firebase/          # Firebase config
-├── pages/             # POS views (Billing, Products, Dashboard)
-├── marketplace/       # NFT Marketplace frontend
-├── utils/             # Helper functions
-└── App.js             # Root component
+├── assets/ # Static files (images, logos, icons)
+├── constants/ # Static config and constants (routes, roles, enums)
+├── contexts/ # Context Providers (Auth, Theme, etc.)
+├── firebase/ # Firebase config and services
+├── hooks/ # Custom React hooks (useAuth, useFirestore, etc.)
+├── layouts/ # App layout wrappers (Sidebar, Navbar, etc.)
+├── pages/ # All main app pages (Dashboard, Billing, Products)
+├── routes/ # Centralized route definitions
+├── utils/ # Utility/helper functions
+├── App.jsx # Root component
+├── main.jsx # Vite entry point
+└── index.css # TailwindCSS/global styles
 ```
 
 ---
@@ -95,7 +106,8 @@ Special thanks to OpenAI, Thirdweb, Firebase, and all open-source contributors.
 
 ## 📜 License
 
-MIT – use it, improve it, scale it 🚀
+MIT – don't use it, can improve it, scale it 🚀
+copyright reserved by shaikh saim
 
 ---
 

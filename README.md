@@ -10,6 +10,9 @@ A modern Point of Sale (POS) system with NFT-based customer rewards and an integ
 ## 📸 Preview
 
 > ![image](https://github.com/user-attachments/assets/b65e44a1-f7a1-4084-a287-f025965cac9d)
+> ![GitHub Repo stars](https://img.shields.io/github/stars/ahmed6913/web-app-pos?style=social)
+![GitHub forks](https://img.shields.io/github/forks/ahmed6913/web-app-pos?style=social)
+
 
 ---
 

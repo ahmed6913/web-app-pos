@@ -37,8 +37,8 @@ export default function CustomersPage() {
   }, []);
 
   return (
-    <div className="p-6 text-black dark:text-white">
-      <h1 className="text-3xl font-bold mb-6">All Customers</h1>
+    <div className="p-4 sm:p-6 text-black dark:text-white">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">All Customers</h1>
 
       {customers.length === 0 ? (
         <p className="text-gray-600 dark:text-gray-400">No customers found.</p>
@@ -47,20 +47,22 @@ export default function CustomersPage() {
           {customers.map((customer) => (
             <div
               key={customer.id}
-              className="bg-white dark:bg-slate-900 text-black dark:text-white p-4 rounded-lg shadow border border-gray-200 dark:border-slate-700 flex justify-between items-start"
+              className="bg-white dark:bg-slate-900 text-black dark:text-white p-4 rounded-lg shadow border border-gray-200 dark:border-slate-700 flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4"
             >
-              <div className="space-y-1">
+              <div className="space-y-1 break-words">
                 <p><span className="font-semibold">👤 Name:</span> {customer.name}</p>
                 <p><span className="font-semibold">📧 Email:</span> {customer.email}</p>
                 <p><span className="font-semibold">📞 Phone:</span> {customer.phone}</p>
                 <p><span className="font-semibold">💼 Wallet:</span> {customer.walletAddress}</p>
               </div>
-              <button
-                onClick={() => handleDelete(customer.id)}
-                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md transition"
-              >
-                Delete
-              </button>
+              <div className="self-end sm:self-start">
+                <button
+                  onClick={() => handleDelete(customer.id)}
+                  className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md transition w-full sm:w-auto"
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           ))}
         </div>

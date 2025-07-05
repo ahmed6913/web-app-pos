@@ -9,6 +9,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import jsPDF from "jspdf";
+import { useContract, useClaimNFT } from "@thirdweb-dev/react";
 
 export default function BillingPage() {
   const [formData, setFormData] = useState({
@@ -21,6 +22,9 @@ export default function BillingPage() {
   const [products, setProducts] = useState([]);
   const [bills, setBills] = useState([]);
   const [editingId, setEditingId] = useState(null);
+
+  const { contract } = useContract("YOUR_EDITION_DROP_CONTRACT_ADDRESS");
+  const { mutateAsync: claimNFT } = useClaimNFT(contract);
 
   useEffect(() => {
     fetchMetaData();
@@ -92,7 +96,6 @@ export default function BillingPage() {
     };
 
     try {
-      // Update inventory
       for (let item of items) {
         const productRef = doc(db, "products", item.id);
         const product = products.find(p => p.id === item.id);
@@ -115,9 +118,18 @@ export default function BillingPage() {
         alert("Bill added");
       }
 
+      if (formData.total >= 1000 && customer.walletAddress) {
+        await claimNFT({
+          to: customer.walletAddress,
+          tokenId: 0,
+          quantity: 1,
+        });
+        console.log("NFT minted to:", customer.walletAddress);
+      }
+
       setFormData({ customer: "", products: [{ productId: "", quantity: 1 }], total: 0 });
       fetchBills();
-      fetchMetaData(); // refresh updated inventory
+      fetchMetaData();
     } catch (error) {
       alert("Error saving bill or updating inventory");
       console.error(error);
@@ -148,10 +160,10 @@ export default function BillingPage() {
   };
 
   return (
-    <div className="p-6 text-slate-900 dark:text-white">
-      <h1 className="text-3xl font-bold mb-6">Billing</h1>
+    <div className="p-4 sm:p-6 text-slate-900 dark:text-white">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-6">Billing</h1>
 
-      <div className="bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg p-6 mb-8 max-w-xl">
+      <div className="bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg p-4 sm:p-6 mb-8 w-full max-w-2xl">
         <h2 className="text-xl font-semibold mb-4">{editingId ? "Edit Bill" : "Add Bill"}</h2>
 
         <select
@@ -167,11 +179,11 @@ export default function BillingPage() {
         </select>
 
         {formData.products.map((item, index) => (
-          <div key={index} className="flex gap-2 mb-2">
+          <div key={index} className="flex flex-col sm:flex-row gap-2 mb-3">
             <select
               value={item.productId}
               onChange={e => handleChange(index, "productId", e.target.value)}
-              className="w-2/3 p-2 rounded text-black"
+              className="w-full sm:w-2/3 p-2 rounded text-black"
             >
               <option value="">Select Product</option>
               {products.map(p => (
@@ -182,17 +194,14 @@ export default function BillingPage() {
               type="number"
               value={item.quantity}
               onChange={e => handleChange(index, "quantity", e.target.value)}
-              className="w-1/3 p-2 rounded text-black"
+              className="w-full sm:w-1/3 p-2 rounded text-black"
               placeholder="Qty"
               min={1}
             />
           </div>
         ))}
 
-        <button
-          onClick={handleAddProductField}
-          className="text-sm text-blue-500"
-        >
+        <button onClick={handleAddProductField} className="text-sm text-blue-500 mb-4">
           + Add another product
         </button>
 
@@ -202,7 +211,7 @@ export default function BillingPage() {
           readOnly
           className="w-full p-2 rounded text-black bg-slate-100 mb-4"
         />
-        <br />
+
         <button
           onClick={handleSubmit}
           className="bg-blue-500 text-white px-4 py-2 rounded w-full hover:bg-blue-600 disabled:opacity-60"
@@ -210,39 +219,45 @@ export default function BillingPage() {
           {editingId ? "Update Bill" : "Generate Bill"}
         </button>
       </div>
-      <br />
+
       <h2 className="text-2xl font-semibold mb-4">All Bills</h2>
+
       <div className="space-y-4">
         {bills.map(bill => (
           <div
             key={bill.id}
-            className="bg-white dark:bg-slate-900 text-black dark:text-white p-4 rounded-lg shadow border border-gray-200 dark:border-slate-700 flex justify-between items-start"
+            className="bg-white dark:bg-slate-900 text-black dark:text-white p-4 rounded-lg shadow border border-gray-200 dark:border-slate-700 flex flex-col gap-3"
           >
             <p><strong>👤 Customer:</strong> {bill.customer}</p>
             <p className="text-sm text-slate-500 dark:text-slate-400">
               <strong>📅 Date:</strong> {new Date(bill.date).toLocaleString()}
             </p>
-            <ul className="list-disc ml-6">
+            <ul className="list-disc ml-5">
               {bill.items.map((item, idx) => (
                 <li key={idx}>
                   {item.name} (x{item.quantity}) - ${item.price * item.quantity}
                 </li>
               ))}
             </ul>
-            <p className="mt-2"><strong>💰 Total:</strong> ${bill.total}</p>
+            <p><strong>💰 Total:</strong> ${bill.total}</p>
 
-            <div className="mt-3 flex flex-wrap gap-3">
+            <div className="flex flex-col sm:flex-row gap-2">
               <button
                 onClick={() => handleDeleteBill(bill.id)}
-                className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"
+                className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded w-full sm:w-auto"
               >
                 Delete
               </button>
               <button
                 onClick={() => generatePDF(bill)}
-                className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+                className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded w-full sm:w-auto"
               >
                 Download PDF
+              </button>
+              <button
+                className="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 rounded w-full sm:w-auto"
+              >
+                Mint NFT
               </button>
             </div>
           </div>

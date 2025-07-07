@@ -4,7 +4,7 @@ A modern Point of Sale (POS) system with NFT-based customer rewards and an integ
 
 [🚀 Live Demo](coming soon) • [🌐 NFT Marketplace](https://nft-marketplace-81f39.web.app/)
 *Built with React, Firebase, Tailwind, Thirdweb, jsPDF, and more.*
-
+Notion docs - https://www.notion.so/UG-Project-1f46368c9a0a806db0a0fc8fc5a43e2b?source=copy_link
 ---
 
 ## 📸 Preview

@@ -6,7 +6,8 @@ import path from "path";
 export default defineConfig({
     plugins: [react()],
     server: {
-        port: 3000,
+        host: true,           // 👈 allow external devices on LAN
+        port: 3000,           // 👈 or any port you prefer
     },
     resolve: {
         alias: {

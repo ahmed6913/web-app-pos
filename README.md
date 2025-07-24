@@ -6,7 +6,9 @@ A modern Point of Sale (POS) system with NFT-based customer rewards and an integ
 *Built with React, Firebase, Tailwind, Thirdweb, jsPDF, and more.*
 
 ---
+Notion docs - https://www.notion.so/UG-Project-1f46368c9a0a806db0a0fc8fc5a43e2b?source=copy_link
 
+---
 ## 📸 Preview
 
 > ![image](https://github.com/user-attachments/assets/b65e44a1-f7a1-4084-a287-f025965cac9d)

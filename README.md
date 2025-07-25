@@ -47,6 +47,8 @@ A modern Point of Sale (POS) system with NFT-based customer rewards and an integ
 
 ## 📦 Getting Started
 
+Make sure you have nodejs installed 
+
 ### 1. Clone the Repository
 
 ```bash

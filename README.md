@@ -2,18 +2,21 @@
 
 A modern Point of Sale (POS) system with NFT-based customer rewards and an integrated NFT Marketplace — built for retail businesses looking to reward loyal customers with digital assets.
 
-[🚀 Live Demo](coming soon) • [🌐 NFT Marketplace](https://nft-marketplace-81f39.web.app/)
 *Built with React, Firebase, Tailwind, Thirdweb, jsPDF, and more.*
 
 ---
-Notion docs - https://www.notion.so/UG-Project-1f46368c9a0a806db0a0fc8fc5a43e2b?source=copy_link
+
+- Notion docs - https://www.notion.so/UG-Project-1f46368c9a0a806db0a0fc8fc5a43e2b?source=copy_link
 
 ---
 ## 📸 Preview
 
+- Live (https://web-app-pos-1deda.web.app)
+
 > ![image](https://github.com/user-attachments/assets/b65e44a1-f7a1-4084-a287-f025965cac9d)
 > ![GitHub Repo stars](https://img.shields.io/github/stars/ahmed6913/web-app-pos?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/ahmed6913/web-app-pos?style=social)
+
 
 
 ---
@@ -43,6 +46,8 @@ Notion docs - https://www.notion.so/UG-Project-1f46368c9a0a806db0a0fc8fc5a43e2b?
 ---
 
 ## 📦 Getting Started
+
+Make sure you have nodejs installed 
 
 ### 1. Clone the Repository
 

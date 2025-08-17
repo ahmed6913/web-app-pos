@@ -1,4 +1,4 @@
-# 🧾 WebApp POS with NFT Rewards
+# 🧾 Web App POS with NFT Rewards
 
 A modern Point of Sale (POS) system with NFT-based customer rewards and an integrated NFT Marketplace — built for retail businesses looking to reward loyal customers with digital assets.
 
